@@ -33,7 +33,17 @@ const routes = [
     path: "/blocks",
     name: "BlockListView",
     component: () => import("../views/BlockListView.vue"),
-  }
+  },
+  {
+    path: "/weeks/:id",
+    name: "WeekView",
+    component: () => import("../views/WeekView.vue"),
+  },
+  {
+    path: "/days/:id",
+    name: "DayView",
+    component: () => import("../views/DayView.vue"),
+  },
 ];
 
 const router = createRouter({

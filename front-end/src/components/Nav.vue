@@ -31,7 +31,7 @@ const authStore = useAuthStore();
             </li>
             <li class="nav-item">
               <router-link :to="{ name: 'BlockListView' }" class="nav-link">
-                BlockList
+                BlockListView
               </router-link>
             </li>
             <li class="nav-item">
