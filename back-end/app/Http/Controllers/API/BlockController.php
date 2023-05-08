@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Block;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BlockController extends Controller
 {
@@ -29,7 +30,8 @@ class BlockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val_data = $request->validated();
+        return $val_data;
     }
 
     /**

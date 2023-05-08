@@ -4,6 +4,7 @@ use App\Http\Controllers\API\BlockController;
 use App\Http\Controllers\API\DayController;
 use App\Http\Controllers\API\WeekController;
 use App\Http\Controllers\API\ExerciseController;
+use App\Http\Controllers\API\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::resource('blocks', BlockController::class);
 Route::resource('weeks', WeekController::class);
 Route::resource('days', DayController::class);
 Route::resource('exercises', ExerciseController::class);
+
+Route::resource('tests', TestController::class);

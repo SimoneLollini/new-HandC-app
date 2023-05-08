@@ -17,6 +17,7 @@ class ExerciseSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             $newExercise = new Exercise();
+            $newExercise->exercise_name = 'exercise ' . $i + 1;;
             $newExercise->name = "nuovo esercizio " . $i;
             $newExercise->save();
         }

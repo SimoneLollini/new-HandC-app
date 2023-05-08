@@ -17,6 +17,7 @@ class BlockSeeder extends Seeder
     {
         for ($i = 0; $i < 2; $i++) {
             $newBlock = new Block();
+            $newBlock->block_name = 'block_' . $i + 1;;
             $newBlock->coach_id = 0;
             $newBlock->athlete_id = $i;
             $newBlock->save();

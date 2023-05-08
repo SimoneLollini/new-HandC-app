@@ -17,7 +17,9 @@ class BlockFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'block_name' => fake()->word(),
+            'coach_id' => 1,
+            'athlete_id' => 1
         ];
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('blocks', function (Blueprint $table) {
             $table->id();
+            $table->string('block_name');
             $table->unsignedBigInteger('coach_id');
             $table->unsignedBigInteger('athlete_id');
             $table->timestamps();

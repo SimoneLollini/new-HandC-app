@@ -23,6 +23,7 @@ class WeekSeeder extends Seeder
             } else {
                 $block_id = 2;
             }
+            $newWeek->week_name = 'week ' . $i + 1;;
             $newWeek->block_id = $block_id;
             $newWeek->save();
         }
