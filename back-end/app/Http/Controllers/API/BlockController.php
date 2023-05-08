@@ -30,8 +30,30 @@ class BlockController extends Controller
      */
     public function store(Request $request)
     {
-        $val_data = $request->validated();
-        return $val_data;
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'block_name' => 'required',
+            'coach_id' => 'required',
+            'athlete_id' => 'nullable',
+        ]);
+
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        $newBlock = new Block();
+        $newBlock->fill($data);
+        $newBlock->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => "Blocco creato con successo!"
+        ]);
     }
 
     /**

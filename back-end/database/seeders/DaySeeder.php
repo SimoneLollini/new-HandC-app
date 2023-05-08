@@ -15,7 +15,7 @@ class DaySeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $newDay = new Day();
             $newDay->day_name = 'day ' . $i + 1;
 

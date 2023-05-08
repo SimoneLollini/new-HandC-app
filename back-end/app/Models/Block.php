@@ -12,6 +12,7 @@ class Block extends Model
 {
     use HasFactory;
     protected $fillable =   [
+        'block_name',
         'coach_id',
         'athlete_id'
     ];

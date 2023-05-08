@@ -23,10 +23,6 @@ class StoreBlockRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'block_name' => 'required',
-            'coach_id' => 'nullable',
-            'athlete_id' => 'nullable',
-        ];
+        //
     }
 }
