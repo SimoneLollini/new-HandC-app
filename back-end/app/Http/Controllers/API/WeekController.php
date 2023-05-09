@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Block;
 use App\Models\Week;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class WeekController extends Controller
 {
@@ -26,7 +27,29 @@ class WeekController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request()->all());
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'week_name' => 'required',
+            'block_id' => 'required',
+        ]);
+
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        $newWeek = new Week();
+        $newWeek->fill($data);
+        $newWeek->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => "Settimana creata con successo!"
+        ]);
     }
 
     /**

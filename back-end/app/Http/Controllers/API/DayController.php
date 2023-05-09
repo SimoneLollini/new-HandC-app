@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Day;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DayController extends Controller
 {
@@ -25,7 +26,28 @@ class DayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'day_name' => 'required',
+        ]);
+
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        $newDay = new Day();
+        $newDay->fill($data);
+        $newDay->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => "Giorno creato con successo!"
+        ]);
     }
 
     /**

@@ -11,6 +11,7 @@ class Week extends Model
 {
     use HasFactory;
     protected $fillable =   [
+        'week_name',
         'block_id'
     ];
     /**

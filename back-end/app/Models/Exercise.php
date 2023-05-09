@@ -10,7 +10,7 @@ class Exercise extends Model
 {
     use HasFactory;
     protected $fillable =   [
-        'name'
+        'exercise_name'
     ];
     /**
      * The days that belong to the Exercise

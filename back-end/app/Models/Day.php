@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Day extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'day_name'
+    ];
     /**
      * The weeks that belong to the Day
      *

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Block;
+use App\Models\Week;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class BlockController extends Controller
@@ -31,11 +33,13 @@ class BlockController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        $data['coach_id'] = 1;
+        //Auth::id();
         $validator = Validator::make($data, [
             'block_name' => 'required',
             'coach_id' => 'required',
             'athlete_id' => 'nullable',
+            'weeksNumber' => 'required',
         ]);
 
 
@@ -49,6 +53,12 @@ class BlockController extends Controller
         $newBlock = new Block();
         $newBlock->fill($data);
         $newBlock->save();
+
+        for ($i = 0; $i < $data['weeksNumber']; $i++) {
+            $newWeek = new Week();
+            $newWeek->block_id = $newBlock['id'];
+            $newWeek->save();
+        }
 
         return response()->json([
             'success' => true,

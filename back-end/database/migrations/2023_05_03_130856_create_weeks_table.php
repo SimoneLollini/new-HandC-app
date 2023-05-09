@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('weeks', function (Blueprint $table) {
             $table->id();
-            $table->string('week_name');
+            $table->string('week_name')->nullable();
             $table->unsignedBigInteger('block_id');
             $table->timestamps();
         });
